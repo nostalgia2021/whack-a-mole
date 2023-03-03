@@ -1,0 +1,86 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: 'Roboto', sans-serif, 'Arial',' Calibri','Cambria Math';
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: -135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    gap:25px;
+    font-size: 2rem;
+}
+
+.header{
+    position: relative;
+    width: 900px;
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap:1rem;
+    margin-bottom: 4rem;
+
+}
+.game-board{
+    width: 900px;
+    max-width: 80%;
+    padding: 2px 50px;
+}
+
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid brown;
+    padding-bottom: 5px;
+}
+
+.game-board{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.mole-img,.snake-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.score-text{
+    font-size: large;
+}
