@@ -130,7 +130,7 @@ const Model = ((view) => {
 })(View);
 
 const Controller = ((model, view) => {
-  const { GameBoard, Entity } = model;
+  const { GameBoard } = model;
   const { domSelector } = view;
   //global var to controller.
   const second = 1000;
@@ -146,7 +146,7 @@ const Controller = ((model, view) => {
     }
     if (e.target.classList.contains("snake-img")) {
       gb.items = gb.clickedSnake();
-      stopGame();
+      stopGame("none");
     } else {
       const pos = e.target.dataset.id;
       const currentBoard = gb.items;
@@ -158,26 +158,23 @@ const Controller = ((model, view) => {
   function startTimer() {
     domSelector.timer.innerText = "0";
     timer = setInterval(() => {
-      if (timeLimit >= 0) {
-        domSelector.timer.innerText = timeLimit;
-        timeLimit--;
-      } else {
-        stopGame();
+      timeLimit--;
+      domSelector.timer.innerText = timeLimit;
+      if (timeLimit <= 0) {
+        stopGame("none");
       }
     }, second);
   }
-  function stopGame() {
+  function stopGame(pointer) {
     clearInterval(si);
     clearInterval(timer);
-    domSelector.gameBoard.style.pointerEvents = "none";
+    domSelector.gameBoard.style.pointerEvents = pointer;
   }
   function startNewGame() {
     gb.items = gb.initBoard();
-    clearInterval(si);
-    clearInterval(timer);
+    stopGame("auto");
     timeLimit = 30;
     domSelector.score.innerText = "0";
-    domSelector.gameBoard.style.pointerEvents = "auto";
     startTimer();
     generateNewMole();
   }

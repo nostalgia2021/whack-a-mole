@@ -46,6 +46,10 @@
     width: 900px;
     max-width: 80%;
     padding: 2px 50px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
 }
 
 .circle{
@@ -54,13 +58,6 @@
     border-radius: 50%;
     border: 2px solid brown;
     padding-bottom: 5px;
-}
-
-.game-board{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    align-items: center;
-    justify-items: center;
 }
 
 .mole-img,.snake-img{
